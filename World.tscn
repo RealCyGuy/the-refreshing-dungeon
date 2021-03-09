@@ -23,22 +23,22 @@ extents = Vector2( 16, 32 )
 [sub_resource type="RectangleShape2D" id=4]
 extents = Vector2( 48, 16 )
 
-[sub_resource type="RectangleShape2D" id=6]
+[sub_resource type="RectangleShape2D" id=5]
 extents = Vector2( 144, 16 )
+
+[sub_resource type="RectangleShape2D" id=6]
+extents = Vector2( 16, 32 )
 
 [sub_resource type="RectangleShape2D" id=7]
 extents = Vector2( 16, 32 )
 
 [sub_resource type="RectangleShape2D" id=8]
-extents = Vector2( 16, 32 )
-
-[sub_resource type="RectangleShape2D" id=9]
 extents = Vector2( 33.3333, 48 )
 
-[sub_resource type="RectangleShape2D" id=10]
+[sub_resource type="RectangleShape2D" id=9]
 extents = Vector2( 32, 16 )
 
-[sub_resource type="Animation" id=5]
+[sub_resource type="Animation" id=10]
 length = 0.2
 tracks/0/type = "value"
 tracks/0/path = NodePath("CanvasLayer/ColorRect:color")
@@ -74,6 +74,7 @@ __meta__ = {
 }
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
+visible = false
 color = Color( 0, 0, 0, 1 )
 
 [node name="Sun" parent="." instance=ExtResource( 6 )]
@@ -412,7 +413,7 @@ spawn_names = [ NodePath("../../Enemies/BossZombie7"), NodePath("../../Enemies/B
 
 [node name="CollisionShape2D" parent="DetectionSpawners/DetectionSpawner5" index="0"]
 position = Vector2( -464, 559 )
-shape = SubResource( 6 )
+shape = SubResource( 5 )
 
 [node name="DetectionSpawner6" parent="DetectionSpawners" instance=ExtResource( 10 )]
 position = Vector2( 0, 2 )
@@ -420,33 +421,33 @@ spawn_names = [ NodePath("../../Enemies/Blob11"), NodePath("../../Enemies/Blob12
 
 [node name="CollisionShape2D" parent="DetectionSpawners/DetectionSpawner6" index="0"]
 position = Vector2( 512, -450 )
-shape = SubResource( 7 )
+shape = SubResource( 6 )
 
 [node name="DetectionSpawner7" parent="DetectionSpawners" instance=ExtResource( 10 )]
 spawn_names = [ NodePath("../../Enemies/Zombie32"), NodePath("../../Enemies/Zombie33"), NodePath("../../Enemies/Zombie34") ]
 
 [node name="CollisionShape2D" parent="DetectionSpawners/DetectionSpawner7" index="0"]
 position = Vector2( -48, 287 )
-shape = SubResource( 8 )
+shape = SubResource( 7 )
 
 [node name="DetectionSpawner8" parent="DetectionSpawners" instance=ExtResource( 10 )]
 
 [node name="CollisionShape2D" parent="DetectionSpawners/DetectionSpawner8" index="0"]
 position = Vector2( 848, 239 )
 scale = Vector2( 0.48, 1 )
-shape = SubResource( 9 )
+shape = SubResource( 8 )
 
 [node name="DetectionSpawner9" parent="DetectionSpawners" instance=ExtResource( 10 )]
 spawn_names = [ NodePath("../../Enemies/BossZombie5"), NodePath("../../Enemies/Blob20"), NodePath("../../Enemies/Blob21"), NodePath("../../Enemies/Blob22"), NodePath("../../Enemies/Blob23"), NodePath("../../Enemies/Blob24"), NodePath("../../Enemies/Blob25") ]
 
 [node name="CollisionShape2D" parent="DetectionSpawners/DetectionSpawner9" index="0"]
 position = Vector2( -448, -17 )
-shape = SubResource( 10 )
+shape = SubResource( 9 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." groups=[
 "animation",
 ]]
-anims/flash = SubResource( 5 )
+anims/flash = SubResource( 10 )
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -470,6 +471,20 @@ margin_top = -96.0
 margin_right = 224.0
 custom_fonts/font = ExtResource( 7 )
 text = "Use WASD to move and LMB to click."
+align = 1
+valign = 1
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Instructions2" type="Label" parent="Labels"]
+margin_left = 320.0
+margin_top = 192.0
+margin_right = 576.0
+margin_bottom = 288.0
+custom_fonts/font = ExtResource( 7 )
+text = "The longer you go without shooting, the faster you run."
 align = 1
 valign = 1
 autowrap = true

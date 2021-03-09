@@ -4,6 +4,7 @@ const BULLET = preload("res://Bullet/Bullet.tscn")
 
 var speed = 150
 var velocity = Vector2.ZERO
+var time_since_last_shoot = 0
 
 func _ready():
 	Global.player = self
@@ -22,6 +23,15 @@ func get_input():
 	velocity = velocity.normalized() * speed
 
 func _physics_process(delta):
+	time_since_last_shoot += delta
+	if time_since_last_shoot > 14.0:
+		speed = 300
+	elif time_since_last_shoot > 8.0:
+		speed = 250
+	elif time_since_last_shoot > 4.0:
+		speed = 200
+	else:
+		speed = 150
 	get_input()
 	velocity = move_and_slide(velocity)
 	if Input.is_action_just_pressed("shoot"):
@@ -40,6 +50,7 @@ func _physics_process(delta):
 				$Shoot.play()
 				yield(get_tree().create_timer(0.07), "timeout")
 			$AnimatedSprite.play("default")
+			time_since_last_shoot = 0
 	
 func _process(delta):
 	look_at(get_global_mouse_position())

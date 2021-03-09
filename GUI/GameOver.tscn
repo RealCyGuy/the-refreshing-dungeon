@@ -1,0 +1,74 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Fonts/Apple ][.tres" type="DynamicFont" id=1]
+[ext_resource path="res://GUI/GameOver.gd" type="Script" id=2]
+[ext_resource path="res://GUI/button_up.tres" type="StyleBox" id=3]
+
+[sub_resource type="Animation" id=1]
+resource_name = "fade_in"
+length = 1.8
+tracks/0/type = "value"
+tracks/0/path = NodePath("ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.8, 1.8 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 0, 0, 0, 1 ), Color( 0, 0, 0, 1 ), Color( 0, 0, 0, 0 ) ]
+}
+
+[node name="GameOver" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Text" type="Label" parent="."]
+margin_left = 64.0
+margin_top = 40.0
+margin_right = 448.0
+margin_bottom = 216.0
+custom_fonts/font = ExtResource( 1 )
+text = "Thank you for playing! You died 10 times, killed 5 enemies, and finished in 00:13.25."
+align = 1
+valign = 1
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button" type="Button" parent="."]
+margin_left = 168.0
+margin_top = 264.0
+margin_right = 344.0
+margin_bottom = 312.0
+mouse_default_cursor_shape = 2
+custom_styles/hover = ExtResource( 3 )
+custom_styles/pressed = ExtResource( 3 )
+custom_styles/normal = ExtResource( 3 )
+custom_fonts/font = ExtResource( 1 )
+custom_colors/font_color = Color( 0.77, 0.77, 0.77, 1 )
+custom_colors/font_color_hover = Color( 0.9, 0.9, 0.9, 1 )
+custom_colors/font_color_pressed = Color( 1, 1, 1, 1 )
+text = "Main Menu"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+color = Color( 0, 0, 0, 0 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "fade_in"
+anims/fade_in = SubResource( 1 )

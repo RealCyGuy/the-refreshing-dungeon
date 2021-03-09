@@ -1,0 +1,66 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Fonts/Apple ][.tres" type="DynamicFont" id=1]
+[ext_resource path="res://GUI/InGameMenu.gd" type="Script" id=2]
+
+[sub_resource type="Gradient" id=1]
+colors = PoolColorArray( 0.634277, 0, 0, 1, 0.981934, 0.126577, 0.126577, 1 )
+
+[sub_resource type="GradientTexture" id=2]
+gradient = SubResource( 1 )
+
+[sub_resource type="StyleBoxEmpty" id=3]
+
+[node name="InGameMenu" type="CanvasLayer"]
+script = ExtResource( 2 )
+
+[node name="ColorRect" type="ColorRect" parent="."]
+margin_left = 12.0
+margin_top = 340.0
+margin_right = 180.0
+margin_bottom = 372.0
+color = Color( 0, 0, 0, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HealthBar" type="TextureProgress" parent="."]
+margin_left = 16.0
+margin_top = 344.0
+margin_right = 176.0
+margin_bottom = 368.0
+max_value = 50.0
+value = 20.0
+texture_progress = SubResource( 2 )
+nine_patch_stretch = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Time" type="Label" parent="."]
+margin_left = 384.0
+margin_right = 512.0
+margin_bottom = 32.0
+custom_fonts/font = ExtResource( 1 )
+custom_colors/font_color = Color( 0.768627, 0.768627, 0.768627, 1 )
+text = "00:00.00"
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button" type="Button" parent="."]
+margin_left = 216.0
+margin_right = 296.0
+margin_bottom = 32.0
+custom_styles/pressed = SubResource( 3 )
+custom_styles/focus = SubResource( 3 )
+custom_fonts/font = ExtResource( 1 )
+custom_colors/font_color = Color( 0.768627, 0.768627, 0.768627, 1 )
+custom_colors/font_color_hover = Color( 0.9, 0.9, 0.9, 1 )
+custom_colors/font_color_pressed = Color( 1, 1, 1, 1 )
+text = "Quit"
+flat = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
